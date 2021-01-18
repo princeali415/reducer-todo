@@ -5,8 +5,6 @@ class TodoForm extends Component {
         super();
         this.state= {
             task: '',
-            id: Date.now(),
-            completed: false,
         }
         
     }

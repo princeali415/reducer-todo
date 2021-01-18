@@ -11,7 +11,7 @@ export default class Todo extends Component {
     render() {
         return (
             <div>
-                <div onClick={this.handleClick} className={this.props.item.completed ? 'completed' : ''}>
+                <div onClick={this.handleClick} className={this.props.item.completed ? 'completed' : 'notCompleted'}>
                     <p>{this.props.item.task}</p>
                 </div>
             </div>
