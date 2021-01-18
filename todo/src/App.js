@@ -1,23 +1,31 @@
+import React, { useReducer } from 'react'
+import {initialState, reducer} from './reducers/index'
+import {addTask, setToggle, clearList } from './actions/index'
 import TodoForm from './components/TodoForm'
+import TodoList from './components/TodoList'
 import './App.css';
 
 
-const initialList = [
-  {
-    item: 'Learn about reducers',
-    completed: false,
-    id: 3892987589
-  }
-]
-
 function App() {
 
+const [state, dispatch] = useReducer(reducer, initialState)
 
+const handleAddItem = str => {
+  dispatch(addTask(str))
+}
+
+const handleToggle = id => {
+  dispatch(setToggle(id))
+}
+
+const handleClear = () => {
+  dispatch(clearList)
+}
 
   return (
     <div className="App">
-      <TodoForm />
-      
+      <TodoForm handleAddItem={handleAddItem} handleClear={handleClear}/>
+      <TodoList handleToggle={handleToggle} list={state}/>
     </div>
   );
 }
