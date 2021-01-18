@@ -1,26 +1,27 @@
 import React, { Component } from 'react'
 
-
-
 class TodoForm extends Component {
     constructor(){
         super();
         this.state= {
-            task: ''
-            
+            task: '',
+            id: Date.now(),
+            completed: false,
         }
         
     }
 
     handleChanges = e => {
         this.setState({
-            task:e.target.value
+            task:e.target.value,
+            id: Date.now(),
+            completed: false,
         })
     }
 
     handleSubmit = e => {
         e.preventDefault();
-        this.props.handleAddItem(this.state.task)
+        this.props.handleAddItem(this.state)
         this.setState({task:''})
     }
 
