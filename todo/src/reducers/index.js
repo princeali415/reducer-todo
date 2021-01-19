@@ -19,7 +19,7 @@ const reducer = (state, action) => {
             return([...state, action.payload]);
         case(TOGGLE):
             return state.map(item => {
-                return item.id=== action.payload? {...item, completed: !item.completed} : item
+                return item.id === action.payload? {...item, completed: !item.completed} : item
             });
         case(CLEAR):
             return state.filter(item => !item.completed);
